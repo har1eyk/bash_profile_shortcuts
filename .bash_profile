@@ -85,6 +85,7 @@ alias rpi="python /Users/harley/Dropbox/Business/Code/weaved-cli/weaved.py" #Run
 
 
 
+
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
@@ -94,6 +95,11 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 #   --------------------------------------------------------------------
     mans () {
         man $1 | grep -iC2 --color=always $2 | less
+    }
+
+# Search recursively for file containing the provided string
+    qgrep() {
+        grep -r "$1" .
     }
 
 #   showa: to remind yourself of an alias (given some part of it)
@@ -303,3 +309,6 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   e.g.: hdiutil create -size 10m 10MB.dmg
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
+
+# added by Anaconda3 5.1.0 installer
+export PATH="/Users/harleyk/anaconda3/bin:$PATH"
